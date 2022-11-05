@@ -3,12 +3,21 @@
     "description": "yar server for hyperf",
     "type": "library",
     "require": {
+        "php": ">=7.0",
         "bromine-mai/cor-yar": "1.2.1"
+    },
+    "config": {
+        "sort-packages": true
     },
     "license": "Apache License 2.0",
     "autoload": {
         "psr-4": {
             "Mustafa\\CorYar\\": "src/"
+        }
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Mustafa\\CorYar\\ConfigProvider"
         }
     },
     "authors": [
