@@ -1,0 +1,21 @@
+{
+    "name": "mustafa/cor-yar",
+    "description": "yar server for hyperf",
+    "type": "library",
+    "require": {
+        "bromine-mai/cor-yar": "1.2.1"
+    },
+    "license": "Apache License 2.0",
+    "autoload": {
+        "psr-4": {
+            "Mustafa\\CorYar\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mustafa",
+            "email": "fanghailiang2016@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

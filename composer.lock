@@ -1,0 +1,72 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "82cba867509cadb8a21f993c18403e01",
+    "packages": [
+        {
+            "name": "bromine-mai/cor-yar",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JiankangMai/CorYar.git",
+                "reference": "f10a25946ef733f74d360c9b3969cbe57abed920"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JiankangMai/CorYar/zipball/f10a25946ef733f74d360c9b3969cbe57abed920",
+                "reference": "f10a25946ef733f74d360c9b3969cbe57abed920",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BromineMai\\CorYar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brominemai",
+                    "email": "jiankangmai@gmail.com"
+                }
+            ],
+            "description": "Yar Client in Coroutine",
+            "keywords": [
+                "YarClient",
+                "coroutine",
+                "rpc",
+                "swoole",
+                "yar"
+            ],
+            "support": {
+                "issues": "https://github.com/JiankangMai/CorYar/issues",
+                "source": "https://github.com/JiankangMai/CorYar/tree/1.2.1"
+            },
+            "time": "2019-10-12T10:39:22+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
