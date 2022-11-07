@@ -3,7 +3,7 @@
     "description": "yar server for hyperf",
     "type": "library",
     "require": {
-        "php": ">=7.0",
+        "php": ">=8.0",
         "bromine-mai/cor-yar": "1.2.1"
     },
     "config": {

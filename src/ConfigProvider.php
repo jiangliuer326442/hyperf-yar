@@ -1,15 +1,8 @@
 <?php
 
-namespace Mustafa\CorYar;
+declare(strict_types=1);
 
-use Hyperf\Cache\Aspect\CacheableAspect;
-use Hyperf\Cache\Aspect\CacheEvictAspect;
-use Hyperf\Cache\Aspect\CachePutAspect;
-use Hyperf\Cache\Aspect\FailCacheAspect;
-use Hyperf\Cache\Cache;
-use Hyperf\Cache\CacheListenerCollector;
-use Hyperf\Cache\Listener\DeleteListener;
-use Psr\SimpleCache\CacheInterface;
+namespace Mustafa\CorYar;
 
 class ConfigProvider
 {
@@ -20,23 +13,20 @@ class ConfigProvider
             ],
             'listeners' => [
             ],
+            'commands' => [
+
+            ],
             'annotations' => [
                 'scan' => [
-                    'collectors' => [
-
+                    'paths' => [
+                        __DIR__,
                     ],
                 ],
             ],
             'aspects' => [
-
             ],
             'publish' => [
-                [
-                    'id' => 'config',
-                    'description' => 'The config for cache.',
-                    'source' => __DIR__ . '/../publish/cor_yar.php',
-                    'destination' => BASE_PATH . '/config/autoload/cor_yar.php',
-                ],
+
             ],
         ];
     }
