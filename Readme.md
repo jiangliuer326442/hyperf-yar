@@ -1,4 +1,6 @@
+基于 **bromine-mai/cor-yar** 实现的 hyperf 框架可用的 yar 服务端/客户端工具
 
+## 使用教程
 ### config/autoload/server.php
 替换 callbacks Event::ON_REQUEST 为 **\Mustafa\CorYar\YarServer::class**
 ``` php
@@ -35,4 +37,35 @@ use Mustafa\CorYar\Annotation\YarClient;
 
 #[YarClient(url: 'http://127.0.0.1:9501/calculate/t3')]
 public $test_client;
+```
+
+## 示例
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use Hyperf\HttpServer\Annotation\AutoController;
+use Mustafa\CorYar\Annotation\YarClient;
+use Mustafa\CorYar\Annotation\YarServer;
+
+#[AutoController]
+class CalculateController extends AbstractController
+{
+
+    #[YarClient(url: 'http://127.0.0.1:9501/calculate/t3')]
+    public $test_client;
+
+    public function t1()
+    {
+        return $this->test_client->add(25, 20);
+    }
+
+    #[YarServer(model: \App\Model\Services\Interfaces\CalculatorServiceInterface::class)]
+    public function t3()
+    {
+    }
+}
 ```
