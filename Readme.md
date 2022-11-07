@@ -42,15 +42,6 @@ use Mustafa\CorYar\Annotation\YarClient;
 public $test_client;
 ```
 
-### 路由配置
-config/routes.php文件，注意yar服务端只能通过post请求
-```php
-    Router::addGroup('/calculate', static function () {
-        Router::post('/myyarserver', 'App\Controller\CalculateController@myyarserver');
-        Router::get('/myyarclient', 'App\Controller\CalculateController@myyarclient');
-    });
-```
-
 ## 示例
 ```php
 <?php
@@ -63,7 +54,6 @@ use Hyperf\HttpServer\Annotation\AutoController;
 use Mustafa\CorYar\Annotation\YarClient;
 use Mustafa\CorYar\Annotation\YarServer;
 
-#[AutoController]
 class CalculateController extends AbstractController
 {
 
@@ -80,4 +70,11 @@ class CalculateController extends AbstractController
     {
     }
 }
+```
+
+```php
+    Router::addGroup('/calculate', static function () {
+        Router::post('/myyarserver', 'App\Controller\CalculateController@myyarserver');
+        Router::get('/myyarclient', 'App\Controller\CalculateController@myyarclient');
+    });
 ```
