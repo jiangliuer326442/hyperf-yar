@@ -4,12 +4,12 @@
     "type": "library",
     "require": {
         "php": ">=8.0",
-        "bromine-mai/cor-yar": "1.2.1"
+        "bromine-mai/cor-yar": "^1.2.1"
     },
     "config": {
         "sort-packages": true
     },
-    "license": "Apache License 2.0",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Mustafa\\CorYar\\": "src/"
