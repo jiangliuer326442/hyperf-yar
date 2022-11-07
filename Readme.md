@@ -1,6 +1,9 @@
 基于 **bromine-mai/cor-yar** 实现的 hyperf 框架可用的 yar 服务端/客户端工具
 
+`composer require mustafa3264/cor-yar`
+
 ## 使用教程
+
 ### config/autoload/server.php
 替换 callbacks Event::ON_REQUEST 为 **\Mustafa\CorYar\YarServer::class**
 ``` php
