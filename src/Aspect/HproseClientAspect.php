@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Mustafa\CorYar\Aspect;
 
 use Mustafa\CorYar\Annotation\HproseClient;
-use BromineMai\CorYar\Client\Client as Yar_Client;
 use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Aop\AbstractAspect;
@@ -26,7 +25,7 @@ class HproseClientAspect extends AbstractAspect
     {
         foreach (AnnotationCollector::getPropertiesByAnnotation(HproseClient::class) as $_annotation) {
             if ($_annotation['class'] == $proceedingJoinPoint->className) {
-                $proceedingJoinPoint->getInstance()->{$_annotation['property']} = new Yar_Client($_annotation['annotation']->url);
+                $proceedingJoinPoint->getInstance()->{$_annotation['property']} = new \Hprose\Swoole\Http\Client($_annotation['annotation']->url);
             }
         }
         return $proceedingJoinPoint->process();
