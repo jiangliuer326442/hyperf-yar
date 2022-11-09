@@ -10,6 +10,7 @@ use Hyperf\HttpServer\Server as HyperfServer;
 use Hyperf\Utils\Coordinator\Constants;
 use Hyperf\Utils\Coordinator\CoordinatorManager;
 use Mustafa\CorYar\Annotation\YarServer as Annotation_YarServer;
+use Mustafa\CorYar\Annotation\HproseServer as Annotation_HproseServer;
 use Mustafa\CorYar\HttpServer\Throwable;
 
 class YarServer extends HyperfServer
@@ -17,7 +18,9 @@ class YarServer extends HyperfServer
     public function onRequest($request, $response): void
     {
         $yar_handlerd = false;
-        foreach (AnnotationCollector::getMethodsByAnnotation(Annotation_YarServer::class) as $_annotation) {
+        $yar_classes = AnnotationCollector::getMethodsByAnnotation(Annotation_YarServer::class);
+        $hprose_classes = AnnotationCollector::getMethodsByAnnotation(Annotation_HproseServer::class);
+        foreach (array_merge($yar_classes, $hprose_classes) as $_annotation) {
             $path_delimiter_arr = explode('/', $request->server['request_uri']);
             $path_delimiter_num = count($path_delimiter_arr);
             $path_class = '';
