@@ -17,16 +17,9 @@ use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Aop\AbstractAspect;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
 
+#[Aspect(classes: ['App\\Controller\\*Controller'], annotations: [HproseServer::class])]
 class HproseServerAspect extends AbstractAspect
 {
-
-    public array $classes = [
-        'App\\Controller\\*Controller'
-    ];
-
-    public array $annotations = [
-        HproseServer::class,
-    ];
 
     public function process(ProceedingJoinPoint $proceedingJoinPoint)
     {

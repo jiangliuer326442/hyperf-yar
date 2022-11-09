@@ -16,16 +16,9 @@ use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Aop\AbstractAspect;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
 
+#[Aspect(classes: ['App\\Controller\\*Controller'], annotations: [YarClient::class])]
 class YarClientAspect extends AbstractAspect
 {
-
-    public array $classes = [
-        'App\\Controller\\*Controller'
-    ];
-
-    public array $annotations = [
-        YarClient::class,
-    ];
 
     public function process(ProceedingJoinPoint $proceedingJoinPoint)
     {
