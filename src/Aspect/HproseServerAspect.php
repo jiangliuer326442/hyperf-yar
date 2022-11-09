@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Mustafa\CorYar\Aspect;
 
 use Mustafa\CorYar\Annotation\HproseServer;
-use BromineMai\CorYar\Server\SwooleServer as Yar_Server;
 use Hyperf\Context\Context;
 use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Di\Annotation\Aspect;
@@ -25,9 +24,17 @@ class HproseServerAspect extends AbstractAspect
         foreach (AnnotationCollector::getMethodsByAnnotation(HproseServer::class) as $_annotation) {
             if ($_annotation['class'] == $proceedingJoinPoint->className && $_annotation['method'] == $proceedingJoinPoint->methodName) {
                 $model = make($_annotation['annotation']->model);
-                $server = new Yar_Server($model);
-                $server->setIoHandler(Context::get('myrequest'), Context::get('myresponse')); // 设置IO句柄
-                $server->handle();
+                $stream = new \Hprose\BytesIO(file_get_contents("php://input"));
+                $reader = new \Hprose\Reader($stream);
+                $tag = $stream->getc();
+                if ($tag !== \Hprose\Tags::TagCall) {
+                    throw new \Exception('Unexpected tag');
+                }
+
+                $server = new \Hprose\Http\Server();
+                $server->addFunction([$model, $reader->readString()]);
+                $server->start();
+
             }
         }
     }
