@@ -5,7 +5,7 @@
     "require": {
         "php": ">=8.0",
         "bromine-mai/cor-yar": "^1.2.1",
-        "hprose/hprose-swoole": "dev-master"
+        "hprose/hprose-swoole": "v2.0.8"
     },
     "config": {
         "sort-packages": true
