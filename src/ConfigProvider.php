@@ -24,7 +24,6 @@ class ConfigProvider
                 ],
             ],
             'aspects' => [
-
             ],
             'publish' => [
 

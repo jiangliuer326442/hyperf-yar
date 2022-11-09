@@ -15,11 +15,13 @@ use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Aop\AbstractAspect;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
+use Hyperf\Logger\LoggerFactory;
+use Hyperf\Retry\Annotation\Retry;
+use Hyperf\Utils\ApplicationContext;
 
 #[Aspect(classes: ['App\\Controller\\*Controller'], annotations: [YarClient::class])]
 class YarClientAspect extends AbstractAspect
 {
-
     public function process(ProceedingJoinPoint $proceedingJoinPoint)
     {
         foreach (AnnotationCollector::getPropertiesByAnnotation(YarClient::class) as $_annotation) {
