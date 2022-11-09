@@ -20,11 +20,11 @@ use Hyperf\Di\Aop\ProceedingJoinPoint;
 class HproseServerAspect extends AbstractAspect
 {
 
-    public $classes = [
+    public array $classes = [
         'App\\Controller\\*Controller'
     ];
 
-    public $annotations = [
+    public array $annotations = [
         HproseServer::class,
     ];
 

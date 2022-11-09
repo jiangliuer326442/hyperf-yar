@@ -19,11 +19,11 @@ use Hyperf\Di\Aop\ProceedingJoinPoint;
 class YarClientAspect extends AbstractAspect
 {
 
-    public $classes = [
+    public array $classes = [
         'App\\Controller\\*Controller'
     ];
 
-    public $annotations = [
+    public array $annotations = [
         YarClient::class,
     ];
 
