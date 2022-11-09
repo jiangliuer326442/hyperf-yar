@@ -16,7 +16,7 @@ use Hyperf\Di\Annotation\Aspect;
 use Hyperf\Di\Aop\AbstractAspect;
 use Hyperf\Di\Aop\ProceedingJoinPoint;
 
-class HproseClientAspect
+class HproseClientAspect extends AbstractAspect
 {
 
     public $classes = [
